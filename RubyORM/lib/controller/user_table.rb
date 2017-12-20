@@ -9,7 +9,7 @@ class User_table < Table
       ch=gets.chomp.to_i
       case ch
         when 1
-          User_table.search(1)
+          User_table.search(2)
         when 2
           User_table.desc_table
         when 3
