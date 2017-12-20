@@ -2,12 +2,15 @@ require_relative '../Adapter/DBAdapter'
 require_relative 'Connection'
 require 'mysql'
 class Table
-   def self.use(tableName)
+   def self.use()
+
      @con=Connection.instance.connect
+     puts "enter use table name.."
+     table_Name=gets.chomp
      tables=@con.query('show tables')
       tables.each_hash do |h|
-       if h['Tables_in_ruby'].to_s == tableName.to_s
-         @tableName=tableName
+       if h['Tables_in_ruby'].to_s == table_Name.to_s
+         @tableName=table_Name
          return true
        end
      end

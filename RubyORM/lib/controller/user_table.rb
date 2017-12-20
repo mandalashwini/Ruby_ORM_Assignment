@@ -2,9 +2,8 @@ require_relative '../Model/Table'
 require_relative '../Adapter/DBAdapter'
 require_relative '../Model/Connection'
 class User_table < Table
-  puts "enter use table name.."
-  table_name=gets.chomp
-  if User_table.use(table_name)
+
+  if User_table.use()
     loop do
       puts "\n1.Search_Record\n2.Desc_table\n3.Add_records\n4.Update_Record\n5.Delete_Record\n6.Show_All_Records\n7.Exit\nEnter Your Choice..\n"
       ch=gets.chomp.to_i
@@ -33,7 +32,7 @@ class User_table < Table
     end
 
   else
-    puts "#{table_name} does not exists"
+    puts "table does not exists"
 
   end
 
