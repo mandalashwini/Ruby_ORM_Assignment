@@ -8,10 +8,10 @@ class Table
       tables.each_hash do |h|
        if h['Tables_in_ruby'].to_s == tableName.to_s
          @tableName=tableName
-         return
+         return true
        end
      end
-     puts "Table does not exists"
+     return false
    end
 
 
@@ -70,7 +70,7 @@ class Table
       rescue
         puts "Something went wrong.."
       end
-   #puts rs.class
+
   end
   def self.deleteRecord(id)
     rs=@con.query("delete from #{@tableName} where id=#{id}")
@@ -90,19 +90,3 @@ class Table
     puts "The query has affected #{@con.affected_rows} rows"
   end
 end
-#Table.init1
-#puts Table.use("teacher")
-=begin
-Table.getAllRecords
-Table.search(18)
-Table.desc_table
-Table.add_record(555,'Sir viru',4)
-#Table.getAllRecords
-=end
-=begin
-
-Table.deleteRecord(500)
-=end
-
-Table.use("student")
-Table.updateRecord

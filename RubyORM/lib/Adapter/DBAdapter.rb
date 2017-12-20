@@ -25,21 +25,8 @@ class DBAdapter
   def adapter=(adapter)
     @adapter=DBAdapter::Adapter.const_get(adapter.to_s)
   end
+
   def connect
     self.adapter.connect
   end
 end
-=begin
-obj=DBAdapter.new
-obj.connect
-obj.adapter=:Postgresql
-obj.connect
-=end
-
-=begin
-obj=DBAdapter.new
-con=obj.connect
-rs = con.query('select * from student')
-rs.each_hash { |h| puts h['name']}
-con.close
-=end
